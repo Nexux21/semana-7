@@ -21,3 +21,4 @@ protected virtual void PlayFeedback()
         GameObject projectile = Instantiate(projectilePrefab, firePoint.position, Quaternion.identity);
     }
 }
+
