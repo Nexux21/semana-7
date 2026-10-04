@@ -11,14 +11,27 @@ public abstract class BaseAbility : MonoBehaviour
 
     public abstract void Execute();
 
-protected virtual void PlayFeedback()
+    protected virtual void PlayFeedback()
     {
-        castFeedback.PlayFeedbacks();
+        if (castFeedback != null)
+        {
+            castFeedback.PlayFeedbacks();
+        }
     }
 
-    protected void Shoot (float speed,StatusEffecf effect, float duration )
+    protected void Shoot(float speed, StatusEffect effect, float duration)
     {
-        GameObject projectile = Instantiate(projectilePrefab, firePoint.position, Quaternion.identity);
+        if (projectilePrefab == null || firePoint == null)return;
+        
+
+            GameObject projectile = Instantiate(projectilePrefab, firePoint.position, Quaternion.identity);
+            Projectile proj = projectile.GetComponent<Projectile>();
+
+        if (proj != null)
+        {
+            proj.speed = speed;
+            proj.effect = effect;
+            proj.duration = duration;
+        }
     }
 }
-

@@ -4,6 +4,11 @@ using UnityEngine.InputSystem;
 
 public class Player : MonoBehaviour
 {
+
+    public float moveSpeed = 5f;
+    private Vector2 moveInput;
+    public Animator animator;
+
     public BaseAbility[] abilities;
 
     private InputSystem_Actions inputs;
@@ -12,13 +17,13 @@ public class Player : MonoBehaviour
 
     private void Awake()
     {
-        inputs = new();
-
+        inputs = new InputSystem_Actions();
     }
 
     private void OnEnable()
     {
         inputs.Enable();
+
         inputs.Player.Ability1.performed += SelecAbilitty1;
         inputs.Player.Ability2.performed += SelecAbilitty2;
         inputs.Player.Ability3.performed += SelecAbilitty3;
@@ -26,6 +31,7 @@ public class Player : MonoBehaviour
         inputs.Player.Ability5.performed += SelecAbilitty5;
 
         inputs.Player.Attack.performed += OnCast;
+
     }
     private void OnCast(InputAction.CallbackContext context)
     {
@@ -63,7 +69,7 @@ public class Player : MonoBehaviour
 
     private void OnDisable()
     {
-        
+        inputs.Disable();
     }
 
     public void Select(int index)
@@ -75,9 +81,21 @@ public class Player : MonoBehaviour
         
     }
 
-    // Update is called once per frame
+    
     void Update()
     {
-        
+
+        moveInput = inputs.Player.Move.ReadValue<Vector2>();
+        transform.position += (Vector3)moveInput * moveSpeed * Time.deltaTime;
+        animator.SetFloat("movement", moveInput.x);
+
+        if (moveInput.x < 0)
+        {
+            transform.localScale = new Vector3(-1, 1, 1);
+        }
+        else if (moveInput.x > 0)
+        {
+            transform.localScale = new Vector3(1, 1, 1);
+        }
     }
 }

@@ -1,4 +1,4 @@
-public enum StatusEffecf
+public enum StatusEffect
 {
     Burn,
 

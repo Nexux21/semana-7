@@ -4,10 +4,10 @@ public class Projectile : MonoBehaviour
 {
     public float speed;
 
-    public StatusEffecf effecf;
+    public StatusEffect effect;
 
     public float duration;
-
+    
     private void Start()
     {
         transform.position = Vector3.zero;
@@ -25,6 +25,8 @@ public class Projectile : MonoBehaviour
         Enemy enemy = collision.gameObject.GetComponent<Enemy>();
         if (enemy == null) return; 
 
-        enemy.ApplyStatus(effecf);
+        enemy.ApplyStatus(effect, duration);
+
+        Destroy(gameObject);
     }
 }

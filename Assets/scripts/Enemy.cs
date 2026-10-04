@@ -14,14 +14,14 @@ public class Enemy : MonoBehaviour
         
     }
 
-    public void ApplyStatus(StatusEffecf effecf)
+    public void ApplyStatus(StatusEffect effect)
     {
-        Debug.Log("Enemigo recibe:" +  effecf);
+        Debug.Log("Enemigo recibe:" + effect);
     }
 
-    public void ApplyStatus(StatusEffecf effecf, float duration)
+    public void ApplyStatus(StatusEffect effect, float duration)
 
     {
-        Debug.Log("Enemigo recibe:" + effecf + "Time:" +  duration);
+        Debug.Log("Enemigo recibe:" + effect + "Time:" +  duration);
     }
 }
