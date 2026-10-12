@@ -5,6 +5,6 @@ public class SlowAbility : BaseAbility
     public override void Execute()
     {
         PlayFeedback();
-        Shoot(6f, StatusEffecf.Slow, 4f);
+        Shoot(6f, StatusEffect.Slow, 4f);
     }
 }

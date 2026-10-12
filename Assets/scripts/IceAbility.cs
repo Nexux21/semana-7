@@ -5,7 +5,7 @@ public class IceAbility : BaseAbility
     public override void Execute()
     {
         PlayFeedback();
-        Shoot(8f, StatusEffecf.Freeze, 4f);
+        Shoot(8f, StatusEffect.Freeze, 4f);
     }
 
     protected override void PlayFeedback()
