@@ -6128,6 +6128,7 @@ GameObject:
   - component: {fileID: 411686734}
   - component: {fileID: 411686738}
   - component: {fileID: 411686737}
+  - component: {fileID: 411686739}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -6258,7 +6259,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!61 &411686738
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -6305,6 +6306,21 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &411686739
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 411686733}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 094610209f667d0409613eaafce9843b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Enemy
+  player: {fileID: 1529176874}
+  detectionRadius: 5
+  Speed: 2
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
