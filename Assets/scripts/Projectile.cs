@@ -3,15 +3,12 @@ using UnityEngine;
 public class Projectile : MonoBehaviour
 {
     public float speed;
-
     public StatusEffect effect;
-
     public float duration;
-    
+
     private void Start()
     {
-        transform.position = Vector3.zero;
-
+        
         Destroy(gameObject, duration);
     }
 
@@ -23,10 +20,9 @@ public class Projectile : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         Enemy enemy = collision.gameObject.GetComponent<Enemy>();
-        if (enemy == null) return; 
+        if (enemy == null) return;
 
         enemy.ApplyStatus(effect, duration);
-
         Destroy(gameObject);
     }
 }
