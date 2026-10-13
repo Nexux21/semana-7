@@ -4,9 +4,7 @@ using MoreMountains.Feedbacks;
 public abstract class BaseAbility : MonoBehaviour
 {
     public GameObject projectilePrefab;
-
     public Transform firePoint;
-
     public MMF_Player castFeedback;
 
     public abstract void Execute();
@@ -19,13 +17,14 @@ public abstract class BaseAbility : MonoBehaviour
         }
     }
 
+   
     protected void Shoot(float speed, StatusEffect effect, float duration)
     {
-        if (projectilePrefab == null || firePoint == null)return;
-        
+        if (projectilePrefab == null || firePoint == null) return;
 
-            GameObject projectile = Instantiate(projectilePrefab, firePoint.position, Quaternion.identity);
-            Projectile proj = projectile.GetComponent<Projectile>();
+    
+        GameObject projectile = Instantiate(projectilePrefab, firePoint.position, firePoint.rotation);
+        Projectile proj = projectile.GetComponent<Projectile>();
 
         if (proj != null)
         {
